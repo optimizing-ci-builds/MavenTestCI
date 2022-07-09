@@ -14,8 +14,8 @@ jobs:
           java-version: '17'
           distribution: 'adopt'
       - name: Test with Maven
-        run: mvn clean test
-      - name: Coveralls GitHub Action
-        uses: coverallsapp/github-action@1.1.3
+        run: mvn clean test jacoco:report
+      - name: Codecov
+        uses: codecov/codecov-action@v3.1.0
         with:
-          github-token:  ${{ secrets.COVERALLS_TOKEN }}
+          token: ${{ secrets.CODECOV_TOKEN }}
