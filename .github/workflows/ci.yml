@@ -1,13 +1,15 @@
-on:
-  push:
-    branches:
-      - main
-
+on: [push]
 jobs:
   print_hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Hello world!
-      - run: echo "Hello World!"
-      - name: test
-      - run: mvn test
+      - uses: actions/checkout@v3
+      - name: Set up JDK 8
+        uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'adopt'
+      - name: clean install
+        run: mvn clean install
+      - name: cobertura
+        run: mvn cobertura:cobertura
