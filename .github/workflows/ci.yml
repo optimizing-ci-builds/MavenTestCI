@@ -12,4 +12,4 @@ jobs:
       - name: clean install
         run: mvn clean install
       - name: cobertura
-        run: mvn cobertura:cobertura
+        run: mvn cobertura:cobertura -Dcobertura.report.format=xml
