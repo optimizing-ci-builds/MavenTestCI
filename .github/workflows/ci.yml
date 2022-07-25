@@ -1,7 +1,7 @@
 on: [push]
 jobs:
   print_hello:
-    runs-on: maven
+    runs-on: mavenubuntu
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 8
