@@ -79,3 +79,4 @@ jobs:
           source-directory: 'test'
           destination-github-username: 'optimizing-ci-builds'
           destination-repository-name: 'ci-analyzes'
+          target-directory: "MavenTestCI"
