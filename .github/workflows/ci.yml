@@ -22,6 +22,7 @@ jobs:
             import pandas as pd
             import numpy as np
             import os
+            os.mkdir('test')
             os.rename("/home/runner/test/test.csv", "/home/runner/work/MavenTestCI/MavenTestCI/test/test.csv")
      - run: pwd
      - run: ls
