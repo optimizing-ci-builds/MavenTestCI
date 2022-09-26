@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v3
       - run: pwd
       - run: ls
-      - run: cd /target
+      - run: cd /
       - run: pwd
       - run: ls
       - name: Pushes to another repository
