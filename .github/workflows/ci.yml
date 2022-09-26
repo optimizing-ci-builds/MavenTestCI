@@ -14,7 +14,7 @@ jobs:
           pip install numpy
       - run: sudo apt update
       - run: sudo apt install inotify-tools
-      - run: inotifywait -mr /home/runner/work --format '%T;%w;%f;%e' --timefmt %T -o /home/runner/test.csv & echo 'basak'
+      - run: inotifywait -mr /home/runner/work --format '%T;%w;%f;%e' --timefmt %T -o /home/runner/test/test.csv & echo 'basak'
       - run: touch starting_build_actionscheckout@v3_10
       - uses: actions/checkout@v3
       - run: touch starting_build_SetupJDK18_11
@@ -26,6 +26,7 @@ jobs:
       - run: touch starting_build_TestwithMaven_16
       - name: Test with Maven
         run: mvn clean test jacoco:report
+      - run: cd /home/runner
       - run: pwd
       - run: ls
       - name: Pushes to another repository
@@ -34,6 +35,6 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-directory: /home/runner/test.csv
+          source-directory: 'test'
           destination-github-username: 'optimizing-ci-builds'
           destination-repository-name: 'optimizing-ci-builds'
