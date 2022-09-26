@@ -22,6 +22,12 @@ jobs:
             import pandas as pd
             import numpy as np
             import os
+            os.chdir("..")
+            os.chdir("..")
+            os.chdir("..")
+            print(os.getcwd())
+            os.chdir("test")
+            os.listdir()
             os.rename("/home/runner/test/test.csv", "/home/runner/work/MavenTestCI/MavenTestCI/test.csv")
      - run: pwd
      - run: ls
