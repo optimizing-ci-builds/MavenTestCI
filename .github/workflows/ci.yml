@@ -77,5 +77,5 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
        with:
           source-directory: 'test'
-          destination-github-username: 'optimizing-ci-builds'
+          destination-github-username: 'ci-analyzes'
           destination-repository-name: 'optimizing-ci-builds'
