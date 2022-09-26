@@ -26,7 +26,9 @@ jobs:
       - run: touch starting_build_TestwithMaven_16
       - name: Test with Maven
         run: mvn clean test jacoco:report
-      - run: cd /home/runner
+      - run: cd ..
+      - run: cd ..
+      - run: cd ..
       - run: pwd
       - run: ls
       - name: Pushes to another repository
