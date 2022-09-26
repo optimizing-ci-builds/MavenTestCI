@@ -26,9 +26,7 @@ jobs:
       - run: touch starting_build_TestwithMaven_16
       - name: Test with Maven
         run: mvn clean test jacoco:report
-      - run: cd ..
-      - run: cd ..
-      - run: cd ..
+      - run: find /home/runner/test
       - run: pwd
       - run: ls
       - name: Pushes to another repository
@@ -37,6 +35,6 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-directory: 'test'
+          source-directory: '/home/runner/test'
           destination-github-username: 'optimizing-ci-builds'
           destination-repository-name: 'optimizing-ci-builds'
