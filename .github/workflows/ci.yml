@@ -26,8 +26,14 @@ jobs:
       - run: touch starting_build_TestwithMaven_16
       - name: Test with Maven
         run: mvn clean test jacoco:report
-      - run: touch starting_build_Codecov_18
-      - name: Codecov
-        uses: codecov/codecov-action@v3.1.0
+      - run: pwd
+      - run: ls
+      - name: Pushes to another repository
+        id: push_directory
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
+          source-directory: /home/runner/test.csv
+          destination-github-username: 'optimizing-ci-builds'
+          destination-repository-name: 'optimizing-ci-builds'
