@@ -15,18 +15,14 @@ jobs:
           pip install numpy
      - run: sudo apt update
      - run: sudo apt install inotify-tools
-     - run: inotifywait -mr /home/runner/work --format '%T;%w;%f;%e' --timefmt %T -o /home/runner/test.csv & echo 'basak'
+     - run: inotifywait -mr /home/runner/work --format '%T;%w;%f;%e' --timefmt %T -o /home/runner/test/test.csv & echo 'basak'
      - uses: jannekem/run-python-script-action@v1
        with:
           script: |
             import pandas as pd
             import numpy as np
             import os
-            print(os.getcwd())
-            os.chdir("..")
-            os.chdir("..")
-            os.chdir("..")
-            print(os.getcwd())
+            os.rename("/home/runner/test/test.csv", "/home/runner/work/MavenTestCI/MavenTestCI/test/test.csv")
      - run: pwd
      - run: ls
      - name: Pushes to another repository
