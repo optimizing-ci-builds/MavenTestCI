@@ -16,6 +16,7 @@ jobs:
      - run: sudo apt update
      - run: sudo apt install inotify-tools
      - run: inotifywait -mr /home/runner/work --format '%T;%w;%f;%e' --timefmt %T -o /home/runner/test/test.csv & echo 'basak'
+     - run: cat /home/runner/test/test.csv
      - uses: jannekem/run-python-script-action@v1
        with:
           script: |
@@ -26,7 +27,6 @@ jobs:
             os.chdir("..")
             os.chdir("..")
             print(os.getcwd())
-            os.chdir("test")
             os.listdir()
             os.rename("/home/runner/test/test.csv", "/home/runner/work/MavenTestCI/MavenTestCI/test.csv")
      - run: pwd
