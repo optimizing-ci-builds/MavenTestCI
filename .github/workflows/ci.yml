@@ -9,7 +9,9 @@ jobs:
       - run: inotifywait -mr /home/runner/work --format '%T;%w;%f;%e' --timefmt %T -o /home/runner/test/test.csv & echo 'basak'
       - run: touch starting_build_actionscheckout@v3_10
       - uses: actions/checkout@v3
-      - run: find home/runner/test
+      - run: pwd
+      - run: ls
+      - run: cd src
       - run: pwd
       - run: ls
       - name: Pushes to another repository
