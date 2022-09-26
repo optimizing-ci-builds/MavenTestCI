@@ -15,7 +15,7 @@ jobs:
           pip install numpy
      - run: sudo apt update
      - run: sudo apt install inotify-tools
-     - run: inotifywait -mr /home/runner/work --format '%T;%w;%f;%e' --timefmt %T -o /home/runner/test/test.csv & echo 'basak'
+     - run: inotifywait -mr /home/runner/work --format '%T;%w;%f;%e' --timefmt %T -o /home/runner/test.csv & echo 'basak'
      - uses: jannekem/run-python-script-action@v1
        with:
          script: |
@@ -65,9 +65,9 @@ jobs:
                         "creation_index": creation_index, "last_access_step":last_access_step , "last_modify_step":last_modify_step,
                         "creation_step": creation_step})
             info_df = pd.DataFrame(info)
-            info_df.to_csv("/home/runner/info.csv")
+            info_df.to_csv("/home/runner/work/MavenTestCI/MavenTestCI/test/info.csv")
             
-     - run: cat /home/runner/info.csv
+     - run: cat /home/runner/work/MavenTestCI/MavenTestCI/test/info.csv
      - name: Pushes to another repository
        id: push_directory
        uses: cpina/github-action-push-to-another-repository@main
