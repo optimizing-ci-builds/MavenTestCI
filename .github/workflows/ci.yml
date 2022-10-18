@@ -81,7 +81,7 @@ jobs:
                             creation_step = touch_file_name if touch_file_name == 'setup' else touch_file_name.split('_')[1]
                     info.append({'file_name': file_name, 'last_access_index': last_access_index, 'last_modify_index': last_modify_index, 'creation_index': creation_index, 'last_access_step':last_access_step , 'last_modify_step':last_modify_step, 'creation_step': creation_step})
             info_df = pd.DataFrame(info)
-            info_df.to_csv('/home/runner/info.csv')
+            info_df = dp.read_csv('/home/runner/test.csv')
             os.mkdir('optimizing-ci-builds-ci-analysis')
             info_df.to_csv('/home/runner/work/MavenTestCI/MavenTestCI/optimizing-ci-builds-ci-analysis/analysis.csv')
       - name: Pushes analysis to another repository
