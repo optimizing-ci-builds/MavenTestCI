@@ -36,7 +36,7 @@ jobs:
             import pandas as pd
             import numpy as np
             df = pd.read_csv('/home/runner/test.csv', sep=',')
-              print(df)
+            print(df)
             
       - name: Pushes analysis to another repository
         id: push_directory
