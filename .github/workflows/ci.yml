@@ -30,13 +30,7 @@ jobs:
       - run: touch starting_build_TestwithMaven_16
       - name: Test with Maven
         run: mvn clean test jacoco:report
-      - uses: jannekem/run-python-script-action@v1
-        with:
-          script: |
-            import pandas as pd
-            import numpy as np
-            df = pd.read_csv('/home/runner/test.csv', sep=',')
-            print(df)
+      - run: cat /home/runner/test.csv
             
       - name: Pushes analysis to another repository
         id: push_directory
