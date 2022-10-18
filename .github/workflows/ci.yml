@@ -93,5 +93,5 @@ jobs:
           source-directory: 'optimizing-ci-builds-ci-analysis'
           destination-github-username: 'optimizing-ci-builds'
           destination-repository-name: 'ci-analyzes'
-          target-directory: 'MavenTestCI/.github/workflows/ci/build'
+
 
