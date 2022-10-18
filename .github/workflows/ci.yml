@@ -18,7 +18,7 @@ jobs:
           pip install pytest-shutil
       - run: sudo apt update
       - run: sudo apt install inotify-tools
-      - run: inotifywait -mr /home/runner/work --format '%T;%w;%f;%e' --timefmt %T -o /home/runner/test.csv & echo 'basak'
+      - run: inotifywait -mr /home/runner/work --format '%T;%w;%f;%e' --timefmt %T -o /home/runner/analyze/test.csv & echo 'basak'
       - run: touch starting_build_actionscheckout@v3_10
       - uses: actions/checkout@v3
       - run: touch starting_build_SetupJDK18_11
@@ -35,12 +35,7 @@ jobs:
           script: |
             import pandas as pd
             import numpy as np
-            src = pd.read_csv('/home/runner/test.csv')
-            os.mkdir('optimizing-ci-builds-ci-analysis')
-            dest = pd.read_csv('/home/runner/work/MavenTestCI/MavenTestCI/optimizing-ci-builds-ci-analysis/analysis.csv')
 
-            from shutil import copyfile
-            copyfile(src,dest)
             
       - name: Pushes analysis to another repository
         id: push_directory
@@ -48,7 +43,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source-directory: 'optimizing-ci-builds-ci-analysis'
+          source-directory: 'home/runner/analyze'
           destination-github-username: 'optimizing-ci-builds'
           destination-repository-name: 'ci-analyzes'
 
