@@ -15,6 +15,7 @@ jobs:
           pip install numpy
      - run: sudo apt update
      - run: sudo apt install inotify-tools
+     - run: mkdir /home/optcibuilds
      - run: inotifywait -mr /home/runner --format '%T;%w;%f;%e' --timefmt %T -o /home/optcibuilds/test.csv & echo 'basak'
      
      - uses: actions/checkout@v3
