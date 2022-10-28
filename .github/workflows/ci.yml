@@ -25,7 +25,7 @@ jobs:
           distribution: 'adopt'
      - name: Test with Maven
        run: mvn clean test jacoco:report
-     - run: cat /home/runner/work/MavenTestCI/MavenTestCI/test/info.csv
+     - run: cat /home/runner/test.csv
      - uses: jannekem/run-python-script-action@v1
        with:
          script: |
