@@ -15,7 +15,7 @@ jobs:
           pip install numpy
      - run: sudo apt update
      - run: sudo apt install inotify-tools
-     - run: inotifywait -mr /home/runner --format '%T;%w;%f;%e' --timefmt %T -o /home/runner/optcibuilds/test.csv & echo 'basak'
+     - run: inotifywait -mr /home/runner --format '%T;%w;%f;%e' --timefmt %T -o /home/optcibuilds/test.csv & echo 'basak'
      
      - uses: actions/checkout@v3
      - name: Set up JDK 18
@@ -25,7 +25,7 @@ jobs:
           distribution: 'adopt'
      - name: Test with Maven
        run: mvn clean test jacoco:report
-     - run: cat /home/runner/optcibuilds/test.csv
+     - run: cat /home/optcibuilds/test.csv
      - uses: jannekem/run-python-script-action@v1
        with:
          script: |
