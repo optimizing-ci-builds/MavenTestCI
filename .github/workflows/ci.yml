@@ -15,7 +15,7 @@ jobs:
           pip install numpy
      - run: sudo apt update
      - run: sudo apt install inotify-tools
-     - run: inotifywait -mr /home/runner/work --format '%T;%w;%f;%e' --timefmt %T -o /home/runner/test.csv & echo 'basak'
+     - run: inotifywait -mr /home/runner --format '%T;%w;%f;%e' --timefmt %T -o /home/runner/test.csv & echo 'basak'
      
      - uses: actions/checkout@v3
      - name: Set up JDK 18
