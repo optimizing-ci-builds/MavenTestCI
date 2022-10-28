@@ -22,6 +22,7 @@ jobs:
             import pandas as pd
             import numpy as np
             df = pd.read_csv(f"/home/runner/test.csv", sep = ';', names=["time", "watched_filename", "event_filename", "event_name"])
+            print(df.to_string()) 
             df['event_filename'] = df['event_filename'].replace(np.nan, '')
             steps = {}
             starting_indexes = df[(df["event_filename"].str.contains("starting_")) & (df["event_name"] == "CREATE")].index.to_list() + [df.shape[0]]
