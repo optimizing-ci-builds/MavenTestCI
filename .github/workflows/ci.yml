@@ -42,6 +42,7 @@ jobs:
         if: always()
       - run: rm starting_finished_finished_8979874
         if: always()
+      - run: mkdir optimizing-ci-builds-ci-analysis
       - name: Pushes analysis to another repository
         if: always()
         id: push_directory
