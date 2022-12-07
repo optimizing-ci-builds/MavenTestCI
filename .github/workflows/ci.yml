@@ -42,10 +42,7 @@ jobs:
         if: always()
       - run: rm starting_finished_finished_8979874
         if: always()
-      - name: Execute py script # run file
-        if: always()
-        run: |
-          python .github/workflows/script.py
+      - run: mkdir optimizing-ci-builds-ci-analysis
       - name: Pushes analysis to another repository
         if: always()
         id: push_directory
@@ -57,4 +54,3 @@ jobs:
           destination-github-username: 'optimizing-ci-builds'
           destination-repository-name: 'ci-analyzes'
           target-directory: ''
-
