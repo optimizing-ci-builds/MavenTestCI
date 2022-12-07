@@ -46,8 +46,6 @@ jobs:
         if: always()
         run: |
           python .github/workflows/script.py
-      - run: cp /home/runner/inotify-logs.csv /home/runner/work/MavenTestCI/MavenTestCI/optimizing-ci-builds-ci-analysis/
-        if: always()
       - name: Pushes analysis to another repository
         if: always()
         id: push_directory
@@ -58,5 +56,5 @@ jobs:
           source-directory: 'optimizing-ci-builds-ci-analysis'
           destination-github-username: 'optimizing-ci-builds'
           destination-repository-name: 'ci-analyzes'
-          target-directory: 'MavenTestCI/1669209679/.github/workflows/ci/build'
+          target-directory: ''
 
