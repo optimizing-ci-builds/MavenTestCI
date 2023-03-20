@@ -14,7 +14,7 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
       - name: Test with Maven
-        run: mvn clean test jacoco:report
+        run: mvn clean test jacoco:report -DdisableXmlReport=true
       - name: Codecov
         uses: codecov/codecov-action@v3.1.0
         with:
